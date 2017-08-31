@@ -1,0 +1,47 @@
+<form class="add-scores" action="/scores/add" method="post">
+  <input type="text" name="alan_score" value="" placeholder="Alan Score">
+  <input type="text" name="mike_score" value="" placeholder="Mike Score">
+    Winner Color
+  <select class="" name="winner_side">
+    <option value="1">Black</option>
+    <option value="0">White</option>
+  </select>
+  <button type="submit">Send It</button>
+</form>
+
+<table>
+  <thead>
+    <th>Date</th>
+    <th>Alan Score</th>
+    <th>Mike Score</th>
+    <th>Game winner</th>
+    <th>Winner Black?</th>
+  </thead>
+  <tbody>
+    {{#each data}}
+    <tr>
+      <td>{{game_date}}</td>
+      <td>{{alan_score}}</td>
+      <td>{{mike_score}}</td>
+      <td>{{winner_side}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{#each winner}}
+
+    <h1>{{winner}}</h1>
+
+{{/each}}
+<table>
+  <thead>
+    <th>Black win rate</th>
+    <th>Alan win rate</th>
+    <th>Mike win rate</th>
+  </thead>
+  <tr>
+    <td>Black</td>
+    <td>{{aWinPer}}</td>
+    <td>{{mWinPer}}</td>
+  </tr>
+</table>
