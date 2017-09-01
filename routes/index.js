@@ -18,7 +18,20 @@ router.get('/', function(req, res, next) {
           winner.push('Mike');
         }
       }
-      console.log(winner);
+      let blackWins = 0
+      for (var i = 0; i < data.length; i ++) {
+        if (data[i].winner_side == true) {
+          blackWins ++;
+        }
+      }
+      blackWins = (blackWins / data.length) * 100;
+      let winner_count = 0
+      for (var i = 0; i < winner.length; i ++) {
+        if (winner[i] === 'Alan') {
+          winner_count ++;
+        }
+      }
+      let mikeWins = data.length - winner_count
       let aWinPer = 0
       for (var i = 0; i < data.length; i ++) {
         if (data[i].alan_score > data[i].mike_score) {
@@ -27,7 +40,9 @@ router.get('/', function(req, res, next) {
       }
       aWinPer = aWinPer / data.length;
       let mWinPer = 1 - aWinPer;
-      res.render('index', { data: data, aWinPer : aWinPer, mWinPer: mWinPer, winner: winner });
+      aWinPer = aWinPer * 100;
+      mWinPer = mWinPer * 100;
+      res.render('index', { data: data, aWinPer : aWinPer, mWinPer: mWinPer, winner: winner, winner_count: winner_count, mikeWins: mikeWins, blackWins: blackWins });
     }
   )
 });
