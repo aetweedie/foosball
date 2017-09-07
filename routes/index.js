@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
           blackWins ++;
         }
       }
-      blackWins = (blackWins / data.length) * 100;
+      blackWins = Math.round((blackWins / data.length) * 100);
       let winner_count = 0
       for (var i = 0; i < winner.length; i ++) {
         if (winner[i] === 'Alan') {
@@ -40,8 +40,8 @@ router.get('/', function(req, res, next) {
       }
       aWinPer = aWinPer / data.length;
       let mWinPer = 1 - aWinPer;
-      aWinPer = aWinPer * 100;
-      mWinPer = mWinPer * 100;
+      aWinPer = Math.round(aWinPer * 100);
+      mWinPer = Math.round(mWinPer * 100);
       res.render('index', { data: data, aWinPer : aWinPer, mWinPer: mWinPer, winner: winner, winner_count: winner_count, mikeWins: mikeWins, blackWins: blackWins });
     }
   )
