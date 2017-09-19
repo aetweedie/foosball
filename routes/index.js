@@ -10,6 +10,14 @@ function Scores() {
 router.get('/', function(req, res, next) {
   Scores().select().then(
     function(data) {
+      let totalAlan = 0;
+      for (var i = 0; i < data.length; i ++) {
+        totalAlan = totalAlan + data[i].alan_score;
+      };
+      let totalMike = 0;
+      for (var i = 0; i < data.length; i ++) {
+        totalMike = totalMike + data[i].mike_score;
+      };
       let winner = []
       for (var i = 0; i < data.length; i ++) {
         if (data[i].alan_score > data[i].mike_score) {
@@ -42,7 +50,7 @@ router.get('/', function(req, res, next) {
       let mWinPer = 1 - aWinPer;
       aWinPer = Math.round(aWinPer * 100);
       mWinPer = Math.round(mWinPer * 100);
-      res.render('index', { data: data, aWinPer : aWinPer, mWinPer: mWinPer, winner: winner, winner_count: winner_count, mikeWins: mikeWins, blackWins: blackWins });
+      res.render('index', { data: data, aWinPer : aWinPer, mWinPer: mWinPer, winner: winner, winner_count: winner_count, mikeWins: mikeWins, blackWins: blackWins, totalAlan: totalAlan, totalMike: totalMike });
     }
   )
 });
