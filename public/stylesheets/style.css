@@ -4,15 +4,16 @@
 
 html {
   font-family: sans-serif;
-  background: url(https://bxdpey88st-flywheel.netdna-ssl.com/wp-content/uploads/2016/02/foosball-video-picture.jpg) no-repeat;
-  background-size: cover;
 }
 
 .add-new {
-  height: 200px;
+  height: 80px;
   text-align: center;
   margin-bottom: 50px;
-  color: #fdfdfd;
+  color: #000;
+  display: inline-block;
+  float: left;
+  border: 1px solid blue;
 }
 
 input {

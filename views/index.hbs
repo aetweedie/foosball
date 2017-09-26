@@ -1,5 +1,5 @@
 <div class="add-new">
-  <h1>You can't play the foosball!</h1>
+  <h1>FB</h1>
   <form class="add-scores" action="/scores/add" method="post">
     <div class="scores">
       <input type="text" name="alan_score" value="" placeholder="Alan">
@@ -19,6 +19,7 @@
 <div class="top-table">
   <table class="main-table">
     <thead>
+      <th>Game</th>
       <th>Alan Score</th>
       <th>Mike Score</th>
       <th>Winner Black?</th>
@@ -26,6 +27,7 @@
     <tbody>
       {{#each data}}
       <tr>
+        <td>{{id}}</td>
         <td>{{alan_score}}</td>
         <td>{{mike_score}}</td>
         <td>{{winner_side}}</td>
