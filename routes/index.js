@@ -8,6 +8,20 @@ function Scores() {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  // let mike_avg;
+  // knex.schema.raw('select round(cast(avg(mike_score) as int), 2) from scores where mike_score < 10;').then( function (data){
+  //   mike_avg = data.rows[0].round;
+  //   console.log(data);
+  // });
+  // let alan_avg;
+  // knex.schema.raw('select round(cast(avg(alan_score) as int), 2) from scores where alan_score < 10;').then( function (data){
+  //   alan_avg = data.rows[0].round;
+  //   console.log(alan_avg);
+  // });
+  let alan_avg;
+  Scores().avg('alan_score').where('alan_score' < 10).then((data) => {
+    console.log(data);
+  });
   Scores().select().then(
     function(data) {
       let totalAlan = 0;
