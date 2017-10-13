@@ -84,7 +84,7 @@ router.post('/scores/add', function(req, res, next) {
 
 router.get('/scores/all', function(req, res, next) {
   Scores().select().then((data) => {
-    res.render('all_scores', { scores: data });
+    res.render('all_scores', { scores: data, totalCount: data.length });
   });
 });
 
