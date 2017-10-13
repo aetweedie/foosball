@@ -4,7 +4,7 @@ module.exports = {
     connection: 'postgres://localhost:5432/foosball'
   },
   production: {
-    client: ‘pg’,
+    client: 'pg',
     connection: process.env.DATABASE_URL + '?ssl=true',
   }
 }
