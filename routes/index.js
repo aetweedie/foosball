@@ -71,10 +71,6 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/scores/add', function(req, res, next) {
-  res.render('new_score');
-});
-
 router.post('/scores/add', function(req, res, next) {
   if (!req.body.winner_side) {
     req.body.winner_side = true;
