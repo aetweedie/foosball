@@ -1,4 +1,63 @@
-<div class="add-new">
+<h3 class="text-center">Overall Stats</h3>
+<hr />
+<table class="table table-striped table-inverse text-center">
+  <thead>
+    <tr>
+      <th class="text-center"></th>
+      <th class="text-center">Win Percentage</th>
+      <th class="text-center">Total Wins</th>
+      <th class="text-center">Average Points / Loss</th>
+      <th class="text-center">Total Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th class="text-center" scope="row">Mike</th>
+      <td>{{ mWinPer }}%</td>
+      <td>{{ mWins }}</td>
+      <td>{{ mAvg }}</td>
+      <td>{{ mTotal }}</td>
+    </tr>
+    <tr>
+      <th class="text-center" scope="row">Alan</th>
+      <td>{{ aWinPer }}%</td>
+      <td>{{ aWins }}</td>
+      <td>{{ aAvg }}</td>
+      <td>{{ aTotal }}</td>
+    </tr>
+  </tbody>
+</table>
+<h4 class="text-center">Last 10 Games</h4>
+<hr />
+<table class="table table-striped table-inverse text-center">
+  <thead>
+    <tr>
+      <th class="text-center">Alan Score</th>
+      <th class="text-center">Mike Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each lastGames}}
+    <tr>
+      <td class="">{{alan_score}}</td>
+      <td class="">{{mike_score}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<!--
+  mAvg,
+  mTotal,
+  mWins,
+  mWinPer,
+  aAvg,
+  aTotal,
+  aWins,
+  aWinPer,
+  totalGames;
+ -->
+<!-- <div class="add-new">
   <h1>FB</h1>
   <form class="add-scores" action="/scores/add" method="post">
     <div class="scores">
@@ -6,23 +65,48 @@
       <input type="text" name="mike_score" value="" placeholder="Mike">
     </div>
     <br>
-      Winner Color:
-    <select class="" name="winner_side">
-      <option value="1">Black</option>
-      <option value="0">White</option>
-    </select>
-    <br>
     <button type="submit">Send It</button>
   </form>
 </div>
 
 <div class="top-table">
+  <table>
+    <thead>
+      <th></th>
+      <th>Alan</th>
+      <th>Mike</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Win Percentage</td>
+        <td>{{aWinPer}}%</td>
+        <td>{{mWinPer}}%</td>
+      </tr>
+      <tr>
+        <td>Total Wins</td>
+        <td>{{winner_count}}</td>
+        <td>{{mikeWins}}</td>
+      </tr>
+      <tr>
+        <td>Total Points</td>
+        <td>{{totalAlan}}</td>
+        <td>{{totalMike}}</td>
+      </tr>
+      <tr>
+        <td>Average Non-Win Score</td>
+        <td>{{alanAvg}}</td>
+        <td>{{mikeAvg}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="bottom-table">
   <table class="main-table">
     <thead>
       <th>Game</th>
       <th>Alan Score</th>
       <th>Mike Score</th>
-      <th>Winner Black?</th>
     </thead>
     <tbody>
       {{#each data}}
@@ -30,32 +114,8 @@
         <td>{{id}}</td>
         <td>{{alan_score}}</td>
         <td>{{mike_score}}</td>
-        <td>{{winner_side}}</td>
       </tr>
       {{/each}}
     </tbody>
   </table>
-</div>
-
-<div class="bottom-table">
-  <table>
-    <thead>
-      <th>Black win rate</th>
-      <th>Alan win rate</th>
-      <th>Mike win rate</th>
-      <th>Alan's wins</th>
-      <th>Mike's wins</th>
-      <th>Alan's total</th>
-      <th>Mike's total</th>
-    </thead>
-    <tr>
-      <td>{{blackWins}}%</td>
-      <td>{{aWinPer}}%</td>
-      <td>{{mWinPer}}%</td>
-      <td>{{winner_count}}</td>
-      <td>{{mikeWins}}</td>
-      <td>{{totalAlan}}</td>
-      <td>{{totalMike}}</td>
-    </tr>
-  </table>
-</div>
+</div> -->

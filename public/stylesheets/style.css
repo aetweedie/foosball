@@ -1,4 +1,4 @@
-* {
+/** {
   box-sizing: border-box;
 }
 
@@ -14,22 +14,22 @@ html {
   display: inline-block;
   float: left;
   border: 1px solid blue;
-}
+}*/
 
-input {
+/*input {
   height: 50px;
   width: 50px;
   font-size: 20px;
-}
+}*/
 
-select, button {
+/*select, button {
   height: 50px;
   width: 80px;
   font-size: 20px;
   margin-top: 10px;
-}
+}*/
 
-.top-table, .bottom-table {
+/*.top-table, .bottom-table {
   display: block;
   margin: 0 auto;
   text-align: center;
@@ -53,5 +53,5 @@ td {
 }
 
 .bottom-table {
-  margin-bottom: 50px;
+  margin-bottom: 50px;*/
 }
