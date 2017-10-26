@@ -13,10 +13,12 @@ router.get('/', function(req, res, next) {
       mTotal,
       mWins,
       mWinPer,
+      mLast10,
       aAvg,
       aTotal,
       aWins,
       aWinPer,
+      aLast10,
       totalGames,
       lastGames;
 
@@ -56,15 +58,24 @@ router.get('/', function(req, res, next) {
     if (values[3] && values[8]) {
       aWinPer = ((values[3] / values[8].length) * 100).toFixed(1);
     }
+    if (values[7]) {
+      aLast10 = values[7].filter( (game) => {
+          return game.alan_score === 10;
+        });
+      aLast10 = ((aLast10.length / 10) * 100).toFixed(1);
+      mLast10 = (100 - aLast10).toFixed(1);
+    }
     res.render('index', {
           mAvg: values[0],
           mTotal: values[4],
           mWins: values[2],
           mWinPer: mWinPer,
+          mLast10: mLast10,
           aAvg: values[1],
           aTotal: values[5],
           aWins: values[3],
           aWinPer: aWinPer,
+          aLast10: aLast10,
           totalGames: values[8],
           lastGames: values[7],
         });
